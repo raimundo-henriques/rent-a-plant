@@ -1,0 +1,22 @@
+.carousel-item {
+  height: 400px;
+  background: rgb(7, 20, 9);
+}
+
+.carousel-item img {
+  opacity: 0.2;
+  float:right;
+  margin-top: -15%;
+}
+
+.carousel-item p {
+  color: white;
+  font-size: 2rem;
+  text-shadow: black 0px 0px 20px;
+  position: relative;
+  bottom: 120px;
+}
+
+.yellow-color {
+  background-color: $yellow;
+}

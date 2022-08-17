@@ -1,12 +1,21 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $dark-green;
+  box-shadow: 0px 4px 17px 2px gray;
+}
+
+.navbar h2 {
+  color: $light-green;
+}
+
+.navbar .logo {
+  color: $light-green;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar a {
+  color: $light-green
 }
