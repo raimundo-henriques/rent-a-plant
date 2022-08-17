@@ -20,7 +20,7 @@ plants_url = "https://houseplantapi.herokuapp.com/all"
 plants_serialized = URI.open(plants_url).read
 plants_json = JSON.parse(plants_serialized)
 
-plants_json[0..10].map do |plant|
+plants_json[0..11].map do |plant|
   Plant.create!(user: user,
             temp_min: plant["tempmin"]["celsius"],
             temp_max: plant["tempmax"]["celsius"],
