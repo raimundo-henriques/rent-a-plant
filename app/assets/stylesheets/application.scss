@@ -10,3 +10,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  background-image: linear-gradient(rgba(186, 205, 176, 0.3), rgba(186, 205, 176, 0.9)), url("https://img.freepik.com/free-vector/green-leaf-design-element-set-beige-background-vector_53876-118061.jpg?w=1480&t=st=1660753211~exp=1660753811~hmac=d78d4be114a0cb660def9f2d431e7cfa1ac710794bb02012c27000ab21189b88");
+  background-color: $light-green;
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
