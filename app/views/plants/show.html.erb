@@ -1,0 +1,32 @@
+<div class="container container-green my-5 rounded shadow-sm p-4 text-center">
+  <h1 class="m-5"><%= @plant.common_name %></h1>
+  <div class="d-flex justify-content-center mx-5">
+    <%= cl_image_tag @plant.photo.key, class:'show-photo w-50 h-100 rounded mx-3 mt-4' %>
+    <div>
+      <div class="card-infos rounded p-3 m-3">
+        <p class="m-0">Common name: <%= @plant.common_name %></p>
+      </div>
+      <div class="card-infos rounded p-3 m-3">
+        <p class="m-0">Latin name: <%= @plant.latin_name %></p>
+      </div>
+      <div class="card-infos rounded p-3 m-3">
+        <p class="m-0">Family: <%= @plant.family %></p>
+      </div>
+      <div class="card-infos rounded p-3 m-3">
+        <p class="m-0">Temperature: <%= @plant.temp_min %>°C - <%= @plant.temp_max %>°C</p>
+      </div>
+      <div class="card-infos rounded p-3 m-3">
+        <p class="m-0">Ideal light: <%= @plant.ideal_light %></p>
+      </div>
+      <div class="card-infos rounded p-3 m-3">
+        <p class="m-0">Tolerated light: <%= @plant.tolerated_light %></p>
+      </div>
+      <div class="card-infos rounded p-3 m-3">
+        <p class="m-0">Difficulty level: <%= "🤯" * @plant.difficulty_level %> (out of 10)</p>
+      </div>
+      <div class="card-infos rounded p-3 m-3">
+        <p class="m-0">Average rating: <%= @plant.avg_rating %>/5</p>
+      </div>
+    </div>
+  </div>
+</div>
