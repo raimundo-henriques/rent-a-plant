@@ -17,5 +17,9 @@
 }
 
 .navbar a {
-  color: $light-green
+  color: $light-green;
+
+  &:hover {
+    color: $light-green;
+  }
 }
