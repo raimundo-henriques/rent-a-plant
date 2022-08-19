@@ -24,9 +24,11 @@
       <div class="card-infos rounded p-3 m-3">
         <p class="m-0">Difficulty level: <%= "🤯" * @plant.difficulty_level %> (out of 10)</p>
       </div>
-      <div class="card-infos rounded p-3 m-3">
-        <p class="m-0">Average rating: <%= @plant.avg_rating %>/5</p>
-      </div>
+      <% unless @plant.avg_rating.nil? || @plant.avg_rating == 0 %>
+        <div class="card-infos rounded p-3 m-3">
+          <p class="m-0">Average rating: <%= @plant.avg_rating %>/5</p>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

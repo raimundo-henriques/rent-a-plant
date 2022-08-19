@@ -1,11 +1,8 @@
 .container-green {
   background-color: $light-green-transp;
+  color: $dark-green;
 
-  h1 {
-    color: $dark-green;
-  }
-
-  h2 {
+  a {
     color: $dark-green;
   }
 }
