@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show ]
-  before_action :set_plant, only: [:show, :edit, :update]
+  before_action :set_plant, only: [:show, :edit, :update, :destroy]
   def index
     @plants = policy_scope(Plant)
   end
@@ -41,6 +41,10 @@ class PlantsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    authorize @plant
   end
 
   private
