@@ -1,0 +1,18 @@
+<div class="container container-green my-5 rounded shadow-sm p-4 text-center">
+  <%= link_to my_plants_path do %>
+    <h1 class="my-5">My Plants</h1>
+  <% end %>
+  <div class="row justify-content-between mx-4">
+    <% @plants.each do |plant| %>
+      <div class="card rounded shadow-sm m-3 col-sm-8 col-md-6 col-lg-4 p-2" style="width: 19rem;">
+        <%= link_to plant_path(plant) do %>
+        <%= cl_image_tag plant.photo.key, class:'card-img-top rounded' %>
+          <div class="card-body">
+            <p class="card-text"><%= plant.common_name %></p>
+            <p class="card-text">(<%= plant.latin_name %>)</p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
