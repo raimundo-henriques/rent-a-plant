@@ -1,8 +1,8 @@
 <div class="container container-green my-5 rounded shadow-sm p-4 text-center">
   <h1 class="m-5"><%= @plant.common_name %></h1>
   <div class="d-flex justify-content-center mx-5">
-    <%= cl_image_tag @plant.photo.key, class:'show-photo w-50 h-100 rounded mx-3 mt-4' %>
-    <div>
+    <%= cl_image_tag @plant.photo.key, class:'show-photo h-100 rounded mx-3 mt-4 col-xs-12 col-sm-6' %>
+    <div class="col-xs-12 col-sm-6">
       <div class="card-infos rounded p-3 m-3">
         <p class="m-0">Common name: <%= @plant.common_name %></p>
       </div>
@@ -29,6 +29,9 @@
           <p class="m-0">Average rating: <%= @plant.avg_rating %>/5</p>
         </div>
       <% end %>
+      <div class="card-infos rounded p-3 m-3">
+        <p class="m-0">Owner: <%= @plant.user.first_name %> <%= @plant.user.last_name %></p>
+      </div>
     </div>
   </div>
 </div>
