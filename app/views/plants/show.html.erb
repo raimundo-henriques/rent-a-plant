@@ -32,6 +32,9 @@
       <div class="card-infos rounded p-3 m-3">
         <p class="m-0">Owner: <%= @plant.user.first_name %> <%= @plant.user.last_name %></p>
       </div>
+      <div>
+        <%= link_to "Edit #{@plant.common_name}", edit_plant_path(@plant), class:'btn btn-info' if policy(@plant).edit? %>
+      </div>
     </div>
   </div>
 </div>

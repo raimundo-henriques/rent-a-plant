@@ -17,4 +17,8 @@ class PlantPolicy < ApplicationPolicy
   def my_plants?
     true
   end
+
+  def update?
+    record.user == user
+  end
 end

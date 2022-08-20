@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_plant, only: :show
+  skip_before_action :authenticate_user!, only: [:index, :show ]
+  before_action :set_plant, only: [:show, :edit, :update]
   def index
     @plants = policy_scope(Plant)
   end
@@ -28,6 +28,19 @@ class PlantsController < ApplicationController
   def my_plants
     @plants = policy_scope(current_user.plants)
     authorize @plants
+  end
+
+  def edit
+    authorize @plant
+  end
+
+  def update
+    authorize @plant
+    if @plant.update(plant_params)
+      redirect_to plant_path(@plant)
+    else
+      render :new
+    end
   end
 
   private
