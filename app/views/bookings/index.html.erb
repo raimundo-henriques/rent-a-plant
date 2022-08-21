@@ -1,2 +1,21 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<div class="container container-green my-5 rounded shadow-sm p-4 text-center">
+  <%= link_to bookings_path do %>
+    <h1 class="my-5">My Bookings</h1>
+  <% end %>
+  <div class="row justify-content-between me-5 ms-3">
+    <% @bookings.each do |booking| %>
+      <div class="card rounded shadow-sm m-3 col-xs-12 p-2 ">
+        <%= link_to plant_path(booking.plant) do %>
+          <div class="d-flex">
+            <%= cl_image_tag booking.plant.photo.key, class:'card-img-top rounded w-25' %>
+            <div class="text-start m-3">
+              <p><%= booking.plant.common_name %> (<%= booking.plant.latin_name %>)</p>
+              <p>Booked from <%= booking.start_date %> to <%= booking.end_date %></p>
+              <p>Total price <%= ((booking.end_date - booking.start_date) * booking.plant.price).to_f / 100 %>€</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
