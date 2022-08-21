@@ -9,4 +9,8 @@ class ReviewPolicy < ApplicationPolicy
   def create?
     user.bookings.any? { |booking| booking.plant == record.plant }
   end
+
+  def update?
+    record.user == user
+  end
 end

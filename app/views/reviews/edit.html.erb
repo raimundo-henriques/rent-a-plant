@@ -1,2 +1,11 @@
-<h1>Reviews#edit</h1>
-<p>Find me in app/views/reviews/edit.html.erb</p>
+<div class="container container-green my-5 rounded shadow-sm p-4 text-center">
+  <h1 class="m-5">Edit review of <%= @review.plant.common_name %></h1>
+  <div class="d-flex justify-content-center mx-5">
+    <%= cl_image_tag @review.plant.photo.key, class:'show-photo h-100 rounded mx-3 mt-4 col-xs-12 col-sm-6' %>
+    <div class="col-xs-12 col-sm-6">
+      <div class="card-infos rounded p-3 m-3">
+        <%= render "form", plant: @review.plant, review: @review %>
+      </div>
+    </div>
+  </div>
+</div>

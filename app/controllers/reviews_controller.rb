@@ -20,9 +20,19 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @review = Review.find(params[:id])
+    authorize @review
   end
 
   def update
+    @review = Review.find(params[:id])
+    authorize @review
+
+    if @review.update(review_params)
+      redirect_to plant_path(@review.plant), notice: 'Review successfully updated!'
+    else
+      render :edit
+    end
   end
 
   def destroy
