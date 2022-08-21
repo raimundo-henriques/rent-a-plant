@@ -42,4 +42,21 @@
       </div>
     </div>
   </div>
+    <div>
+      <h2 class="m-5">Reviews</h2>
+      <% if @plant.reviews.empty? %>
+        <div class="card-infos rounded py-3 px-5 m-5">
+          <p class="mb-1"><strong>No reviews yet...</strong></p>
+          <p class="mb-1 ps-3">Be the first to leave a review of <%= @plant.common_name %></p>
+        </div>
+      <% end %>
+      <% @plant.reviews.each do |review| %>
+        <div class="card-infos rounded py-3 px-5 m-5">
+          <p class="mb-1"><strong><%= review.user.first_name %> <%= review.user.last_name %></strong> says:</p>
+          <p class="mb-1 ps-3"><%= review.comment %></p>
+          <p class="mb-1 ps-3"><%= review.rating %>/5</p>
+        </div>
+      <% end %>
+      <%= link_to "Add a review", new_plant_review_path(@plant), class: 'btn btn-success mb-4' if current_user.bookings.any? { |booking| booking.plant == @plant } %>
+    </div>
 </div>
