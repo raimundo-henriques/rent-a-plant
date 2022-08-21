@@ -13,6 +13,7 @@
               <p>Booked from <%= booking.start_date %> to <%= booking.end_date %></p>
               <p>Total price <%= ((booking.end_date - booking.start_date) * booking.plant.price).to_f / 100 %>€</p>
               <%= link_to "Edit", edit_booking_path(booking), class:'btn btn-outline-success' %>
+              <%= link_to "Cancel", booking, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:'btn btn-outline-warning'  %>
             </div>
           </div>
         <% end %>

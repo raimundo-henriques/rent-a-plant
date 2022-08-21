@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     @booking.plant = Plant.find(params[:plant_id])
     authorize @booking
     if @booking.save
-      redirect_to plant_path(@booking.plant), notice: 'Booking was successfully.'
+      redirect_to bookings_path, notice: 'Booking was successfully.'
     else
       render :new
     end
@@ -37,6 +37,10 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
+    redirect_to bookings_path, status: :see_other, notice: "Booking for #{@booking.plant.common_name} was successfully cancelled."
   end
 
   private
