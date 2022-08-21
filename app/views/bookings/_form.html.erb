@@ -6,6 +6,10 @@
   </div>
 </div>
   <div class="d-flex justify-content-center">
-    <%= f.button :submit, "Book #{plant.common_name}", class:'btn btn-success my-5' %>
+  <% if booking.new_record? %>
+    <%= f.button :submit, "Book", class:'btn btn-success my-5' %>
+  <% else %>
+    <%= f.button :submit, "Update booking", class:'btn btn-success my-5' %>
+  <% end %>
   </div>
 <% end %>

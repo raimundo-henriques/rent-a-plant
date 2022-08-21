@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @booking.plant = Plant.find(params[:plant_id])
+    @plant = Plant.find(params[:plant_id])
     authorize @booking
   end
 
@@ -22,9 +22,18 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to bookings_path, notice: 'Booking was successfully update.'
+    else
+      render :edit
+    end
   end
 
   def destroy

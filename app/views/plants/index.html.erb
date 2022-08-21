@@ -4,7 +4,7 @@
   <% end %>
   <div class="row justify-content-between mx-4">
     <% @plants.each do |plant| %>
-      <div class="card rounded shadow-sm m-3 col-sm-8 col-md-6 col-lg-4 p-2 <%="card-yellow" if plant.user == current_user %>" style="width: 19rem;">
+      <div class="card rounded shadow-sm m-3 col-sm-8 col-md-6 col-lg-4 p-2 <%="card-transp" if plant.user == current_user %>" style="width: 19rem;">
         <%= link_to plant_path(plant) do %>
         <%= cl_image_tag plant.photo.key, class:'card-img-top rounded' %>
           <div class="card-body">
