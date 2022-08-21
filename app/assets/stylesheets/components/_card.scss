@@ -21,4 +21,9 @@
 }
 .card-img-top {
   min-height: 70%;
+  object-fit: cover;
+}
+
+.card-yellow {
+  opacity: 0.5;
 }

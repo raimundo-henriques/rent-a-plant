@@ -32,6 +32,9 @@
       <div class="card-infos rounded p-3 m-3">
         <p class="m-0">Owner: <%= @plant.user.first_name %> <%= @plant.user.last_name %></p>
       </div>
+      <div class="card-infos rounded p-3 m-3">
+        <p class="m-0">Price: <%= @plant.price.to_f / 100 %>€ / day</p>
+      </div>
       <div>
         <%= link_to "Book", new_plant_booking_path(@plant), class:'btn btn-success' if current_user != @plant.user && policy(Booking).new? %>
         <%= link_to "Edit", edit_plant_path(@plant), class:'btn btn-info' if policy(@plant).edit? %>
