@@ -47,7 +47,11 @@
       <% if @plant.reviews.empty? %>
         <div class="card-infos rounded py-3 px-5 m-5">
           <p class="mb-1"><strong>No reviews yet...</strong></p>
-          <p class="mb-1 ps-3">Be the first to leave a review of <%= @plant.common_name %></p>
+          <% if @plant.bookings.any? { |booking| booking.user == current_user } %>
+            <p class="mb-1 ps-3">Be the first to leave a review of <%= @plant.common_name %></p>
+          <% else %>
+            <p class="mb-1 ps-3">Once you've booked it, make sure to leave a review of <%= @plant.common_name %></p>
+          <% end %>
         </div>
       <% end %>
       <% @plant.reviews.each do |review| %>
