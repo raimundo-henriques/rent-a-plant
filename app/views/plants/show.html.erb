@@ -55,15 +55,18 @@
         </div>
       <% end %>
       <% @plant.reviews.each do |review| %>
-        <div class="card-infos rounded py-3 px-5 m-5">
+        <div class="card-infos rounded py-3 px-5 mx-5 my-2">
           <p class="mb-1"><strong><%= review.user.first_name %> <%= review.user.last_name %></strong> says:</p>
           <p class="mb-1 ps-3"><%= review.comment %></p>
           <div class="d-flex justify-content-between">
             <p class="mb-1 ps-3"><%= review.rating %>/5</p>
-            <%= link_to "Edit", plant_review_path(review), class: 'btn btn-outline-success' if review.user == current_user %>
+            <div>
+              <%= link_to "Edit", edit_plant_review_path(review.plant, review), class: 'btn btn-outline-success' if review.user == current_user %>
+              <%= link_to "Delete", plant_review_path(review.plant, review), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:'btn btn-outline-warning'  %>
+            </div>
           </div>
         </div>
       <% end %>
-      <%= link_to "Add a review", new_plant_review_path(@plant), class: 'btn btn-success mb-4' if current_user.bookings.any? { |booking| booking.plant == @plant } %>
+      <%= link_to "Add a review", new_plant_review_path(@plant), class: 'btn btn-success my-4' if current_user.bookings.any? { |booking| booking.plant == @plant } %>
     </div>
 </div>
