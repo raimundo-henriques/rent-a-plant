@@ -10,9 +10,11 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.plant = Plant.find(params[:plant_id])
     @review.user = current_user
+    @review.plant.ratings << @review.rating
     authorize @review
 
     if @review.save
+      @review.plant.save
       redirect_to plant_path(@review.plant), notice: 'Review successfully added! Thanks!'
     else
       render :new

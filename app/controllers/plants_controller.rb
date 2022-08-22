@@ -7,6 +7,7 @@ class PlantsController < ApplicationController
 
   def show
     authorize @plant
+    @plant.avg_rating = @plant.ratings.sum / (@plant.ratings.length.positive? ? @plant.ratings.length : 1)
   end
 
   def new
