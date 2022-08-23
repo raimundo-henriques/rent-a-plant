@@ -6,17 +6,24 @@
   <%= link_to plants_path do %>
     <h1 class="my-5">All Plants</h1>
   <% end %>
-  <div class="row justify-content-between mx-4">
-    <% @plants.each do |plant| %>
-      <div class="card rounded shadow-sm m-3 col-sm-8 col-md-6 col-lg-4 p-2" style="width: 19rem;">
-        <%= link_to plant_path(plant) do %>
-        <%= cl_image_tag plant.photo.key, class:'card-img-top rounded' %>
-          <div class="card-body">
-            <p class="card-text"><%= plant.common_name %></p>
-            <p class="card-text">(<%= plant.latin_name %>)</p>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+  <div class="d-flex flex-column align-items-center">
+    <div class="row justify-content-between mx-4">
+      <% @plants.each do |plant| %>
+        <div class="card rounded shadow-sm m-3 col-sm-8 col-md-6 col-lg-4 p-2 <%="card-transp" if plant.user == current_user %>" style="width: 19rem;">
+          <%= link_to plant_path(plant) do %>
+          <%= cl_image_tag plant.photo.key, class:'card-img-top rounded' %>
+            <div class="card-body">
+              <p class="card-text"><%= plant.common_name %></p>
+              <p class="card-text">(<%= plant.latin_name %>)</p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div style="width: 93%; height: 300px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" class="map rounded m-3">
+    </div>
   </div>
 </div>

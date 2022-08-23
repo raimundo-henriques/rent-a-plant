@@ -39,7 +39,7 @@ plant = Plant.new(user: user_1,
                   latin_name: plants_json[0]["latin"],
                   family: plants_json[0]["family"],
                   difficulty_level: rand(0..10),
-                  avg_rating: rand(0.0..5.0).round(1),
+                  address: 'Rua Do Conde De Redondo, 1150-102 Lisbon, Lisboa, Portugal',
                   price: rand(200..5000))
 
 plant_photo = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Aeschynanthus_Lobbianus_%2849375252662%29.jpg/1561px-Aeschynanthus_Lobbianus_%2849375252662%29.jpg?20200223181951")
@@ -57,7 +57,7 @@ plant = Plant.new(user: user_2,
                   latin_name: plants_json[1]["latin"],
                   family: plants_json[1]["family"],
                   difficulty_level: rand(0..10),
-                  avg_rating: rand(0.0..5.0).round(1),
+                  address: 'Avenida De Serpa Pinto 311, 4450-281 Matosinhos, Porto, Portugal',
                   price: rand(200..5000))
 
 plant_photo = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Adiantum_raddianum_2017_sori.jpg/640px-Adiantum_raddianum_2017_sori.jpg")
@@ -75,7 +75,7 @@ plant = Plant.new(user: user_1,
                   latin_name: plants_json[2]["latin"],
                   family: plants_json[2]["family"],
                   difficulty_level: rand(0..10),
-                  avg_rating: rand(0.0..5.0).round(1),
+                  address: 'Avenida Vasco Da Gama, 7520-265 Sines, Setúbal, Portugal',
                   price: rand(200..5000))
 
 plant_photo = URI.open("https://upload.wikimedia.org/wikipedia/commons/2/23/Aechmea_fasciata2.jpg")
@@ -93,7 +93,7 @@ plant = Plant.new(user: user_2,
                   latin_name: plants_json[3]["latin"],
                   family: plants_json[3]["family"],
                   difficulty_level: rand(0..10),
-                  avg_rating: rand(0.0..5.0).round(1),
+                  address: 'Avenida 24 De Julho, 1200-868 Lisbon, Lisboa, Portugal',
                   price: rand(200..5000))
 
 plant_photo = URI.open("https://upload.wikimedia.org/wikipedia/commons/c/ce/Variegated_Caribbean_Agave_%28Agave_angustifolia_%27Marginata%27%29.jpg")
@@ -111,7 +111,7 @@ plant = Plant.new(user: user_1,
                   latin_name: plants_json[4]["latin"],
                   family: plants_json[4]["family"],
                   difficulty_level: rand(0..10),
-                  avg_rating: rand(0.0..5.0).round(1),
+                  address: 'Avenida Da Igreja, 1700-038 Lisbon, Lisboa, Portugal',
                   price: rand(200..5000))
 
 plant_photo = URI.open("https://upload.wikimedia.org/wikipedia/commons/b/b5/Aechmea_caudata_%27Santa_Catarina%27_kz2.jpg")
@@ -129,7 +129,7 @@ plant = Plant.new(user: user_2,
                   latin_name: plants_json[6]["latin"],
                   family: plants_json[6]["family"],
                   difficulty_level: rand(0..10),
-                  avg_rating: rand(0.0..5.0).round(1),
+                  address: 'Rua De Serralves, 4150-708 Porto, Porto, Portugal',
                   price: rand(200..5000))
 
 plant_photo = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Agave_filifera_22.JPG/1600px-Agave_filifera_22.JPG?20130913225203")
@@ -147,7 +147,7 @@ plant = Plant.new(user: user_1,
                   latin_name: plants_json[36]["latin"],
                   family: plants_json[36]["family"],
                   difficulty_level: rand(0..10),
-                  avg_rating: rand(0.0..5.0).round(1),
+                  address: 'Avenida Da Boavista, 4100-119 Porto, Porto, Portugal',
                   price: rand(200..5000))
 
 plant_photo = URI.open("https://upload.wikimedia.org/wikipedia/commons/b/bf/Colpfl05.jpg")

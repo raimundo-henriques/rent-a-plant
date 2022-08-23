@@ -4,36 +4,36 @@
     <%= cl_image_tag @plant.photo.key, class:'show-photo h-100 rounded mx-3 mt-4 col-xs-12 col-sm-6' %>
     <div class="col-xs-12 col-sm-6">
       <div class="card-infos rounded p-3 m-3">
-        <p class="m-0">Common name: <%= @plant.common_name %></p>
+        <p class="m-0"><strong>Common name:</strong> <%= @plant.common_name %></p>
       </div>
       <div class="card-infos rounded p-3 m-3">
-        <p class="m-0">Latin name: <%= @plant.latin_name %></p>
+        <p class="m-0"><strong>Latin name:</strong> <%= @plant.latin_name %></p>
       </div>
       <div class="card-infos rounded p-3 m-3">
-        <p class="m-0">Family: <%= @plant.family %></p>
+        <p class="m-0"><strong>Family:</strong> <%= @plant.family %></p>
       </div>
       <div class="card-infos rounded p-3 m-3">
-        <p class="m-0">Temperature: <%= @plant.temp_min %>°C - <%= @plant.temp_max %>°C</p>
+        <p class="m-0"><strong>Temperature:</strong> <%= @plant.temp_min %>°C - <%= @plant.temp_max %>°C</p>
       </div>
       <div class="card-infos rounded p-3 m-3">
-        <p class="m-0">Ideal light: <%= @plant.ideal_light %></p>
+        <p class="m-0"><strong>Ideal light:</strong> <%= @plant.ideal_light %></p>
       </div>
       <div class="card-infos rounded p-3 m-3">
-        <p class="m-0">Tolerated light: <%= @plant.tolerated_light %></p>
+        <p class="m-0"><strong>Tolerated light:</strong> <%= @plant.tolerated_light %></p>
       </div>
       <div class="card-infos rounded p-3 m-3">
-        <p class="m-0">Difficulty level: <%= "🤯" * @plant.difficulty_level %> (out of 10)</p>
+        <p class="m-0"><strong>Difficulty level:</strong> <%= "🤯" * @plant.difficulty_level %> (out of 10)</p>
       </div>
       <% unless @plant.avg_rating.nil? || @plant.avg_rating == 0 %>
         <div class="card-infos rounded p-3 m-3">
-          <p class="m-0">Average rating: <%= @plant.avg_rating %>/5</p>
+          <p class="m-0"><strong>Average rating:</strong> <%= @plant.avg_rating %>/5</p>
         </div>
       <% end %>
       <div class="card-infos rounded p-3 m-3">
-        <p class="m-0">Owner: <%= @plant.user.first_name %> <%= @plant.user.last_name %></p>
+        <p class="m-0"><strong>Owner:</strong> <%= @plant.user.first_name %> <%= @plant.user.last_name %></p>
       </div>
       <div class="card-infos rounded p-3 m-3">
-        <p class="m-0">Price: <%= @plant.price.to_f / 100 %>€ / day</p>
+        <p class="m-0"><strong>Price:</strong> <%= @plant.price.to_f / 100 %>€ / day</p>
       </div>
       <div>
         <%= link_to "Book", new_plant_booking_path(@plant), class:'btn btn-success' if current_user != @plant.user && policy(Booking).new? %>

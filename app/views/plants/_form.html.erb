@@ -9,6 +9,8 @@
     <%= f.input :ideal_light %>
     <%= f.input :tolerated_light %>
     <%= f.input :difficulty_level, collection: (1..10) %>
+    <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+                wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
     <%# <%= f.label :photo, "Add Photo", class: "btn btn-outline-success" %>
     <%= f.input :photo, as: :file, label: "Photo"%>
   </div>

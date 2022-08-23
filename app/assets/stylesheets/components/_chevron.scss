@@ -1,5 +1,6 @@
 .chevron {
   font-size: 2rem;
   color: $green;
-  text-shadow: 0px 0px 20px $dark-green;
+  text-shadow: 3px 0 $white-very-transp, -3px 0 $white-very-transp, 0 3px $white-very-transp, 0 -3px $white-very-transp,
+  2px 2px $white-very-transp, -2px -2px $white-very-transp, 2px -2px $white-very-transp, -2px 2px $white-very-transp;
 }
