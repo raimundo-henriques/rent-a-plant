@@ -42,6 +42,10 @@ gem "cloudinary"
 
 gem "pundit"
 
+gem "pg_search"
+
+gem "open-uri"
+
 # gem "geocoder"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

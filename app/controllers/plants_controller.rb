@@ -4,7 +4,12 @@ class PlantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show ]
   before_action :set_plant, only: [:show, :edit, :update, :destroy]
   def index
-    @plants = policy_scope(Plant)
+    if params[:query].present?
+      @plants = policy_scope(Plant.search_by_common_and_latin_name(params[:query]))
+    else
+      @plants = policy_scope(Plant)
+    end
+
 
     @markers = @plants.map do |plant|
       address = plant.address.parameterize.gsub(' ', '%20').gsub(',', '%2C')

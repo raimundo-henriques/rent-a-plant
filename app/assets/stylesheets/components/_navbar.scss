@@ -33,3 +33,21 @@
 .dropdown-item:hover {
   background-color: $green;
 }
+
+.search-bar {
+  background-color: $white-very-transp;
+  border: 1px solid $green;
+  color: $green;
+
+  &:focus {
+    background-color: $white-very-transp;
+    border: 1px solid $green;
+  }
+  &::placeholder {
+    color: $green;
+  }
+  &:active {
+    background-color: $white-very-transp;
+    border: 1px solid $green;
+  }
+}
