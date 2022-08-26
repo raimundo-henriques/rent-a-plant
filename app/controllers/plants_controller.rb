@@ -67,6 +67,7 @@ class PlantsController < ApplicationController
 
   def destroy
     authorize @plant
+    @plant.destroy
   end
 
   private

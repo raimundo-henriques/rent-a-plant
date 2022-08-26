@@ -13,11 +13,14 @@ class ReviewsController < ApplicationController
     @review.plant.ratings << @review.rating
     authorize @review
 
-    if @review.save
-      @review.plant.save
-      redirect_to plant_path(@review.plant), notice: 'Review successfully added! Thanks!'
-    else
-      render :new
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to plant_path(@review.plant), notice: 'Review successfully added! Thanks!' }
+        format.json
+      else
+        format.html { render :new }
+        format.json
+      end
     end
   end
 
@@ -41,7 +44,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     authorize @review
     @review.destroy
-    redirect_to plants_path(@review.plant), notice: 'Review successfully deleted!'
+    redirect_to plant_path(@review.plant), status: :see_other, notice: 'Review successfully deleted!'
   end
 
   private

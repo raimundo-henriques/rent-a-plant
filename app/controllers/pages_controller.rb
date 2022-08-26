@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
   def home
-    @plants = policy_scope(Plant)
+    @plants = Plant.all
 
     @markers = @plants.map do |plant|
       address = plant.address.parameterize.gsub(' ', '%20').gsub(',', '%2C')

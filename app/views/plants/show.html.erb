@@ -42,7 +42,7 @@
       </div>
     </div>
   </div>
-  <div>
+  <div data-controller="insert-in-list">
     <h2 class="m-5">Reviews</h2>
     <% if @plant.reviews.empty? %>
       <div class="card-infos rounded py-3 px-5 m-5">
@@ -54,6 +54,7 @@
         <% end %>
       </div>
     <% end %>
+    <div data-insert-in-list-target="reviews">
     <% @plant.reviews.each do |review| %>
       <div class="card-infos rounded py-3 px-5 mx-5 my-2">
         <p class="mb-1"><strong><%= review.user.first_name %> <%= review.user.last_name %></strong> says:</p>
@@ -67,6 +68,7 @@
         </div>
       </div>
     <% end %>
+    </div>
     <div class="card-infos rounded pt-5 pb-3 px-5 mx-5 my-2">
       <%= render "reviews/form", plant: @plant, review: @review %>
     </div>
