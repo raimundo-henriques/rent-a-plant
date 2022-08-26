@@ -38,7 +38,7 @@
       <div>
         <%= link_to "Book", new_plant_booking_path(@plant), class:'btn btn-success' if current_user != @plant.user && policy(Booking).new? %>
         <%= link_to "Edit", edit_plant_path(@plant), class:'btn btn-info' if policy(@plant).edit? %>
-        <%= link_to "Delete", plant_path(@plant), method: :delete, class:'btn btn-warning' if policy(@plant).destroy? %>
+        <%= link_to "Delete", plant_path(@plant), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:'btn btn-warning' if policy(@plant).destroy? %>
       </div>
     </div>
   </div>
@@ -49,7 +49,7 @@
         <p class="mb-1"><strong>No reviews yet...</strong></p>
         <% if @plant.bookings.any? { |booking| booking.user == current_user } %>
           <p class="mb-1 ps-3">Be the first to leave a review of <%= @plant.common_name %></p>
-        <% else %>
+        <% elsif @plant.user != current_user %>
           <p class="mb-1 ps-3">Once you've booked it, make sure to leave a review of <%= @plant.common_name %></p>
         <% end %>
       </div>
@@ -69,8 +69,10 @@
       </div>
     <% end %>
     </div>
-    <div class="card-infos rounded pt-5 pb-3 px-5 mx-5 my-2">
-      <%= render "reviews/form", plant: @plant, review: @review %>
-    </div>
+    <% if @plant.user != current_user && @plant.bookings.any? { |booking| booking.user == current_user } %>
+      <div class="card-infos rounded pt-5 pb-3 px-5 mx-5 my-2">
+        <%= render "reviews/form", plant: @plant, review: @review %>
+      </div>
+    <% end %>
   </div>
 </div>

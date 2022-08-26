@@ -68,6 +68,7 @@ class PlantsController < ApplicationController
   def destroy
     authorize @plant
     @plant.destroy
+    redirect_to my_plants_path, status: :see_other, notice: 'Plant successfully deleted!'
   end
 
   private
