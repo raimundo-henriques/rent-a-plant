@@ -15,3 +15,6 @@ application.register("insert-in-list", InsertInListController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import ScrollTo from 'stimulus-scroll-to'
+application.register('scroll-to', ScrollTo)
